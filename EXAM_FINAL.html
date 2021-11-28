@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>EXAM_FINAL</title>
+    </head>
+    <style>
+        .first{
+            display:none;
+            border: 1px solid #000000;
+            width:100px;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: #ffffff;
+            text-decoration: none;
+            color:#000000;
+        }
+        .second{
+            display:none;
+            border: 1px solid #000000;
+            width:150px;
+            height:50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: #ffffff;
+            text-decoration: none;
+            color:#000000;
+        }
+        .img1{
+            display:none;
+            filter:grayscale(0%);
+            width:140px;
+            height:150px;
+        }
+        .img2{
+            box-shadow:5px 5px 10px grey;
+            width:140px;
+            height:150px;
+        }
+        .img3{
+            display:inline-block;
+            filter:grayscale(0%);
+            width:140px;
+            height:150px;
+        }
+        .img4{
+            display:inline-block;
+            filter:grayscale(100%);
+            width:140px;
+            height:150px;
+        }
+        .img5{
+            display:none;
+            filter:grayscale(0%);
+            width:140px;
+            height:150px;
+            filter:blur(3px);
+        }
+        .img6{
+            display:none;
+            filter:grayscale(0%);
+            width:140px;
+            height:150px;
+            opacity:0.5;
+        }
+        .img7{
+            display:none;
+            filter:grayscale(0%);
+            width:140px;
+            height:150px;
+            transform:rotate(-90deg);
+        }
+        .img8{
+            display:none;
+            filter:grayscale(0%);
+            width:140px;
+            height:150px;
+            transform:rotate(90deg);
+        }
+    </style>
+    <body>
+        <img id="img" class="img1" src="MONDRIAN.png"></br> </br> 
+        <button id="btn">파일 선택</button> </br> 
+        <div id = 'all'>
+            <a class="first" id="gr">회색으로</a>
+            <p class="first" id="bl">흐리게</p>
+            <p class="first" id="sh">그림자</p>
+            <p class="first" id="50">50% 투명</p> </br>
+            <p class="second" id="le">좌로 90도 회전</p>
+            <p class="second" id="ri">우로 90도 회전</p>
+            <p class="second" id="ret">이미지 초기화</p>
+        </div>
+    </body>
+    <script>
+        var image = document.getElementById('img').src;
+        var fileForm = /(.*?)\.(jpg|jpeg|png|gif|bmp|pdf)$/;
+
+        document
+        .getElementById('btn').addEventListener("click", function () {
+            if(!image.match(fileForm)) {
+    	        alert("이미지가 아닙니다.");
+            } else {
+                document.getElementById('img').style.display = 'inline-block';
+                document.getElementById('gr').style.display = 'inline-block';
+                document.getElementById('bl').style.display = 'inline-block';
+                document.getElementById('sh').style.display = 'inline-block';
+                document.getElementById('50').style.display = 'inline-block';
+                document.getElementById('le').style.display = 'inline-block';
+                document.getElementById('ri').style.display = 'inline-block';
+                document.getElementById('ret').style.display = 'inline-block';
+            }
+        });
+
+        document
+        .getElementById('gr').addEventListener("click", function () {
+            document.getElementById('img').className = 'img4'; 
+            });
+
+        document
+        .getElementById('bl').addEventListener("click", function () {
+            document.getElementById('img').className = 'img5'; 
+            });
+
+        document
+        .getElementById('sh').addEventListener("click", function () {
+            input3();
+            });
+
+        function input3() {
+            document.getElementById('img').className = 'img2';
+        }
+
+        document
+        .getElementById('50').addEventListener("click", function () {
+            document.getElementById('img').className = 'img6';
+            });
+
+        document
+        .getElementById('le').addEventListener("click", function () {
+            document.getElementById('img').className = 'img7';
+            });
+
+        document
+        .getElementById('ri').addEventListener("click", function () {
+            document.getElementById('img').className = 'img8';
+            });
+
+            document
+        .getElementById('ret').addEventListener("click", function () {
+            output();
+            });
+        
+        function output() {
+            document.getElementById('img').className = 'img3';
+        }
+
+    </script>
+</html>
